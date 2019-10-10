@@ -13,23 +13,26 @@ class TaskController extends Controller
     	//$task = new App\Task
     	return view('tasks.tasklist', compact("tasks"));
     }
+
     public function addTask(Request $request){
     	$task = new Task;
-    	$task->name = $request->newtask;
+    	$task->task = $request->newtask;
     	//$task->status = $request->newtask;
     	$task->save();
     	return redirect("/tasklist");
     }
+
     public function updateTask(Request $request, $id){
     	$taskUpdate = Task::find($id);
-    	$taskUpdate->name = $request->editedtask;
+    	$taskUpdate->task = $request->editedtask;
     	$taskUpdate->save();
     	//dd($taskUpdate);
     	return redirect("/tasklist");
     }
+    
     public function deleteTask($id){
     	$taskDelete = Task::find($id); //id
     	$taskDelete->delete();
-    	//return redirect("/tasklist");
+    	return redirect("/tasklist");
     }
 }

@@ -48,11 +48,11 @@
 				<tbody>
 				@foreach($tasks as $task)
 					<tr>
-						<td>{{ $task->name }}</td>
+						<td>{{ $task->task }}</td>
 						<td>{{$task->created_at}}</td>
 						<td>
-							<button type="button" class="btn btn-danger" onclick="openDeleteModal({{$task->id}}, '{{$task->name}}')" data-toggle="modal">Delete</button>
-							<button type="button" class="btn btn-primary" onclick="openEditModal({{$task->id}}, '{{$task->name}}')" data-toggle="modal">Edit</button>
+							<button type="button" class="btn btn-danger" onclick="openDeleteModal({{$task->id}}, '{{$task->task}}')" data-toggle="modal">Delete</button>
+							<button type="button" class="btn btn-primary" onclick="openEditModal({{$task->id}}, '{{$task->task}}')" data-toggle="modal">Edit</button>
 						</td>
 					</tr>	
 				@endforeach
@@ -122,7 +122,7 @@
 		      		{{ csrf_field() }}
 		      		{{ method_field('PUT')}}
 		      		<label>Task:</label>
-		      		<input type="text" name="editedtask" ></input> 
+		      		<input type="text" name="editedtask"></input> 
 		      		<button type="submit" class="btn btn-danger">Update</button>
 		      	</form>
 		        
